@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Colors.swift
 //  StereoApp
 //
 //  Created by Matvey Garbuzov on 14.12.2022.

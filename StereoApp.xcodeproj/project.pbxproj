@@ -12,7 +12,7 @@
 		1CA0D7EA294A0CCD008649FD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7E9294A0CCD008649FD /* MainController.swift */; };
 		1CA0D7EF294A0CCE008649FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CA0D7EE294A0CCE008649FD /* Assets.xcassets */; };
 		1CA0D7F2294A0CCE008649FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CA0D7F0294A0CCE008649FD /* LaunchScreen.storyboard */; };
-		1CA0D7FD294A0FB5008649FD /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7FC294A0FB5008649FD /* File.swift */; };
+		1CA0D7FD294A0FB5008649FD /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7FC294A0FB5008649FD /* Colors.swift */; };
 		1CD48207294B887F005378CD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1CD48206294B887F005378CD /* SnapKit */; };
 		1CD48209294B9052005378CD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD48208294B9052005378CD /* MainView.swift */; };
 		1CD4820B294B92AE005378CD /* Instrument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4820A294B92AE005378CD /* Instrument.swift */; };
@@ -29,7 +29,7 @@
 		1CA0D7EE294A0CCE008649FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CA0D7F1294A0CCE008649FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1CA0D7F3294A0CCE008649FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CA0D7FC294A0FB5008649FD /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		1CA0D7FC294A0FB5008649FD /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		1CD48208294B9052005378CD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1CD4820A294B92AE005378CD /* Instrument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Instrument.swift; sourceTree = "<group>"; };
 		1CD4820C294BA19A005378CD /* ListOfInstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfInstrumentsViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +70,6 @@
 			children = (
 				1CA0D7E5294A0CCD008649FD /* AppDelegate.swift */,
 				1CA0D7E7294A0CCD008649FD /* SceneDelegate.swift */,
-				1CA0D7FC294A0FB5008649FD /* File.swift */,
 				1CA0D7FB294A0E6E008649FD /* Controller */,
 				1CA0D7FA294A0E66008649FD /* View */,
 				1CA0D7F9294A0E5F008649FD /* Model */,
@@ -84,6 +83,7 @@
 		1CA0D7F9294A0E5F008649FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CA0D7FC294A0FB5008649FD /* Colors.swift */,
 				1CD4820A294B92AE005378CD /* Instrument.swift */,
 			);
 			path = Model;
@@ -186,7 +186,7 @@
 			files = (
 				1CD48211294BC7C6005378CD /* InstrumentCell.swift in Sources */,
 				1CA0D7EA294A0CCD008649FD /* MainController.swift in Sources */,
-				1CA0D7FD294A0FB5008649FD /* File.swift in Sources */,
+				1CA0D7FD294A0FB5008649FD /* Colors.swift in Sources */,
 				1CA0D7E6294A0CCD008649FD /* AppDelegate.swift in Sources */,
 				1CD48209294B9052005378CD /* MainView.swift in Sources */,
 				1CD4820B294B92AE005378CD /* Instrument.swift in Sources */,
