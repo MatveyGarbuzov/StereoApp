@@ -14,6 +14,8 @@ class MainController: UIViewController {
   private var orchestra = Orchestra()
   private var audioPlayer = AudioPlayerController()
   
+  private var stackView: UIStackView?
+  
   lazy private var playButton: UIButton = {
     let button = UIButton(frame: .zero)
     button.backgroundColor = .opaqueSeparator
@@ -23,6 +25,20 @@ class MainController: UIViewController {
     button.setTitleColor(.label, for: .normal)
     
     button.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
+    
+    return button
+  }()
+  
+  lazy private var resetButton: UIButton = {
+    let button = UIButton()
+    button.backgroundColor = .opaqueSeparator
+    button.setTitle("Reset", for: .normal)
+    button.titleLabel?.font = .systemFont(ofSize: 25, weight: .bold)
+    button.layer.cornerRadius = 10
+    button.setTitleColor(.label, for: .normal)
+    
+    button.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
+    
     
     return button
   }()
@@ -78,17 +94,16 @@ class MainController: UIViewController {
   
   private func setup() {
     view.addSubview(mainView)
-    view.addSubview(playButton)
     
     setupMainView()
-    setupPlayButton()
+    setupButtons()
   }
   
   private func setupMainView() {
     mainView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).inset(50)
       make.leading.trailing.equalToSuperview()
-      make.bottom.equalTo(playButton.snp.top)
+      make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(50)
     }
     
     
@@ -135,9 +150,23 @@ class MainController: UIViewController {
     
   }
   
-  private func setupPlayButton() {
+  private func setupButtons() {
+    stackView = UIStackView(arrangedSubviews: [playButton, resetButton])
+    view.addSubview(stackView!)
+    stackView!.axis = .horizontal
+    stackView!.spacing = 5
+    stackView!.distribution = .fillEqually
+    
     playButton.snp.makeConstraints { make in
-      make.leading.trailing.equalToSuperview().inset(80)
+      make.height.equalToSuperview()
+    }
+    
+    resetButton.snp.makeConstraints { make in
+      make.height.equalToSuperview()
+    }
+    
+    stackView!.snp.makeConstraints { make in
+      make.leading.trailing.equalToSuperview().inset(40)
       make.height.equalTo(60)
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(30)
     }
@@ -146,15 +175,18 @@ class MainController: UIViewController {
   @objc private func playButtonPressed(_ sender: UIView?) {
     guard let button = sender as? UIButton else { return }
     
-    button.isEnabled = false
-    button.alpha = 0.5
+    button.buttonPressed()
+    audioPlayer.play(orchestra: self.orchestra)
+  }
+  
+  @objc private func resetButtonPressed(_ sender: UIView?) {
+    guard let button = sender as? UIButton else { return }
+    button.buttonPressed()
     
-    UIView.animate(withDuration: 1, animations: {
-      self.audioPlayer.play(orchestra: self.orchestra)
-      button.alpha = 1
-    }) { completion in
-      button.isEnabled = true
+    for i in 0..<instrumentsView.count {
+      orchestra.instruments[i] = Instrument(name: .empty, image: UIImage(systemName: "clear"))
     }
+    updateSelectedInstruments()
   }
   
   @objc private func instrumentPressed(sender: UITapGestureRecognizer) {
