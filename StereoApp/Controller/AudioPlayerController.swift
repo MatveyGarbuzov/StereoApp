@@ -13,12 +13,8 @@ final class AudioPlayerController {
   private var audioPlayer = AVAudioPlayer()
   private var audioQueue: AVQueuePlayer?
   
-  //  private var player = [AVPlayerItem]()
-  
   private let alertSound = NSDataAsset(name: "GuitarSound")
   private var alertSounds: [NSDataAsset]?
-  
-  
   
   private func playSound(side: Float, volume: Float, alertSound: NSDataAsset) {
     do {

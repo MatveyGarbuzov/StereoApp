@@ -127,7 +127,6 @@ final class InstrumentConfigurationViewController: UIViewController {
   }
   
   private func saveConfiguration() {
-//    orchestra?.instruments[indexOfElement ?? 0].image = instrumnet?.image
     orchestra?.instruments[indexOfElement ?? 0] = selectedInstrument ?? Instrument()
   }
   
@@ -138,8 +137,6 @@ final class InstrumentConfigurationViewController: UIViewController {
   }
   
   @objc private func sliderMoved(_ sender: UISlider!) {
-//    print("Slider moved")
-    
     let step: Float = 0.1
     let roundedStepValue = round(sender.value / step) * step
     sender.value = roundedStepValue
@@ -152,7 +149,5 @@ final class InstrumentConfigurationViewController: UIViewController {
     default:
       return
     }
-    
-//    print("Slider rounded value: \(roundedStepValue))")
   }
 }

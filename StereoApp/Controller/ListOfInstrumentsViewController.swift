@@ -79,7 +79,7 @@ extension ListOfInstrumentsViewController: UITableViewDataSource, UITableViewDel
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.row == 0 {
       navigationController?.popToRootViewController(animated: true)
-      orchestra?.instruments[indexPath.row] = Instrument(name: .empty, image: UIImage(systemName: "clear"))
+      orchestra?.instruments[indexOfElement!] = Instrument(name: .empty, image: UIImage(systemName: "clear"))
     } else {
       let instrumentConfigVC = InstrumentConfigurationViewController()
       instrumentConfigVC.configure(with: orchestra!, index: indexOfElement, instrument: allInstruments.list[indexPath.row])
