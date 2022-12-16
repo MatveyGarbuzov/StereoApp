@@ -12,6 +12,7 @@ class MainController: UIViewController {
   
   // MARK: Fields
   private var orchestra = Orchestra()
+  private var audioPlayer = AudioPlayerController()
   
   lazy private var playButton: UIButton = {
     let button = UIButton(frame: .zero)
@@ -33,10 +34,9 @@ class MainController: UIViewController {
   lazy var instrumentsView: [UIImageView] = {
     var views: [UIImageView] = []
     
-    for i in 0...orchestra.instruments.count-1 {
+    for i in 0..<orchestra.instruments.count {
       let view = UIImageView()
       view.isUserInteractionEnabled = true
-      view.backgroundColor = .gray
       view.tag = i
       let gesture = UITapGestureRecognizer(target: self, action:  #selector(instrumentPressed))
       view.addGestureRecognizer(gesture)
@@ -104,21 +104,6 @@ class MainController: UIViewController {
       make.width.height.equalTo(100)
     }
     
-//    lazy var instrumentsView: [UIView] = {
-//      var views: [UIView] = []
-//
-//      for i in 0...orchestra.instruments.count-1 {
-//        let view = UIView()
-//        view.backgroundColor = .purple
-//        view.tag = i
-//        let gesture = UITapGestureRecognizer(target: self, action:  #selector(instrumentPressed))
-//        view.addGestureRecognizer(gesture)
-//        self.mainView.addSubview(view)
-//        views.append(view)
-//      }
-//      return views
-//    }()
-    
     do {
       instrumentsView.forEach { instrument in
         instrument.snp.makeConstraints { make in
@@ -157,14 +142,21 @@ class MainController: UIViewController {
     }
   }
   
-  
-  @objc private func playButtonPressed() {
-    print("A")
+  @objc private func playButtonPressed(_ sender: UIView?) {
+    guard let button = sender as? UIButton else { return }
+    
+    button.isEnabled = false
+    button.alpha = 0.5
+    
+    UIView.animate(withDuration: 1, animations: {
+      self.audioPlayer.play(orchestra: self.orchestra)
+      button.alpha = 1
+    }) { completion in
+      button.isEnabled = true
+    }
   }
   
   @objc private func instrumentPressed(sender: UITapGestureRecognizer) {
-    print(sender.view?.tag ?? 0)
-    
     let instrumentViewController = ListOfInstrumentsViewController()
   
     instrumentViewController.configure(with: sender.view?.tag ?? 0, orchestra: orchestra)

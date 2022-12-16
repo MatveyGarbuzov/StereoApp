@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C52A863294C8E3200F82982 /* PianoSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C52A862294C8E3200F82982 /* PianoSound.wav */; };
+		1C52A865294C8E4400F82982 /* GuitarSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C52A864294C8E4400F82982 /* GuitarSound.wav */; };
+		1C52A867294C944500F82982 /* TromboneSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C52A866294C944500F82982 /* TromboneSound.wav */; };
+		1C52A869294C961500F82982 /* ViolinSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C52A868294C961500F82982 /* ViolinSound.wav */; };
+		1C52A86B294C96D000F82982 /* BellsSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 1C52A86A294C96CF00F82982 /* BellsSound.wav */; };
 		1CA0D7E6294A0CCD008649FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7E5294A0CCD008649FD /* AppDelegate.swift */; };
 		1CA0D7E8294A0CCD008649FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7E7294A0CCD008649FD /* SceneDelegate.swift */; };
 		1CA0D7EA294A0CCD008649FD /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0D7E9294A0CCD008649FD /* MainController.swift */; };
@@ -19,9 +24,15 @@
 		1CD4820D294BA19A005378CD /* ListOfInstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4820C294BA19A005378CD /* ListOfInstrumentsViewController.swift */; };
 		1CD4820F294BC0D2005378CD /* InstrumentConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD4820E294BC0D2005378CD /* InstrumentConfigurationViewController.swift */; };
 		1CD48211294BC7C6005378CD /* InstrumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD48210294BC7C6005378CD /* InstrumentCell.swift */; };
+		1CD48213294C5A09005378CD /* AudioPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD48212294C5A09005378CD /* AudioPlayerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C52A862294C8E3200F82982 /* PianoSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = PianoSound.wav; path = ../../../Downloads/PianoSound.wav; sourceTree = "<group>"; };
+		1C52A864294C8E4400F82982 /* GuitarSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = GuitarSound.wav; path = ../../../Downloads/GuitarSound.wav; sourceTree = "<group>"; };
+		1C52A866294C944500F82982 /* TromboneSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = TromboneSound.wav; path = ../../../Downloads/TromboneSound.wav; sourceTree = "<group>"; };
+		1C52A868294C961500F82982 /* ViolinSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = ViolinSound.wav; path = ../../../Downloads/ViolinSound.wav; sourceTree = "<group>"; };
+		1C52A86A294C96CF00F82982 /* BellsSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = BellsSound.wav; path = ../../../Downloads/BellsSound.wav; sourceTree = "<group>"; };
 		1CA0D7E2294A0CCD008649FD /* StereoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StereoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CA0D7E5294A0CCD008649FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1CA0D7E7294A0CCD008649FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +46,7 @@
 		1CD4820C294BA19A005378CD /* ListOfInstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfInstrumentsViewController.swift; sourceTree = "<group>"; };
 		1CD4820E294BC0D2005378CD /* InstrumentConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentConfigurationViewController.swift; sourceTree = "<group>"; };
 		1CD48210294BC7C6005378CD /* InstrumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentCell.swift; sourceTree = "<group>"; };
+		1CD48212294C5A09005378CD /* AudioPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +86,11 @@
 				1CA0D7FA294A0E66008649FD /* View */,
 				1CA0D7F9294A0E5F008649FD /* Model */,
 				1CA0D7EE294A0CCE008649FD /* Assets.xcassets */,
+				1C52A862294C8E3200F82982 /* PianoSound.wav */,
+				1C52A86A294C96CF00F82982 /* BellsSound.wav */,
+				1C52A866294C944500F82982 /* TromboneSound.wav */,
+				1C52A868294C961500F82982 /* ViolinSound.wav */,
+				1C52A864294C8E4400F82982 /* GuitarSound.wav */,
 				1CA0D7F0294A0CCE008649FD /* LaunchScreen.storyboard */,
 				1CA0D7F3294A0CCE008649FD /* Info.plist */,
 			);
@@ -104,6 +121,7 @@
 				1CA0D7E9294A0CCD008649FD /* MainController.swift */,
 				1CD4820C294BA19A005378CD /* ListOfInstrumentsViewController.swift */,
 				1CD4820E294BC0D2005378CD /* InstrumentConfigurationViewController.swift */,
+				1CD48212294C5A09005378CD /* AudioPlayerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,8 +190,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C52A865294C8E4400F82982 /* GuitarSound.wav in Resources */,
+				1C52A867294C944500F82982 /* TromboneSound.wav in Resources */,
+				1C52A863294C8E3200F82982 /* PianoSound.wav in Resources */,
 				1CA0D7F2294A0CCE008649FD /* LaunchScreen.storyboard in Resources */,
 				1CA0D7EF294A0CCE008649FD /* Assets.xcassets in Resources */,
+				1C52A86B294C96D000F82982 /* BellsSound.wav in Resources */,
+				1C52A869294C961500F82982 /* ViolinSound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +216,7 @@
 				1CA0D7E8294A0CCD008649FD /* SceneDelegate.swift in Sources */,
 				1CD4820F294BC0D2005378CD /* InstrumentConfigurationViewController.swift in Sources */,
 				1CD4820D294BA19A005378CD /* ListOfInstrumentsViewController.swift in Sources */,
+				1CD48213294C5A09005378CD /* AudioPlayerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
