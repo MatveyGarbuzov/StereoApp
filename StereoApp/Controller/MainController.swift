@@ -39,7 +39,6 @@ class MainController: UIViewController {
     
     button.addTarget(self, action: #selector(resetButtonPressed), for: .touchUpInside)
     
-    
     return button
   }()
   
@@ -63,6 +62,7 @@ class MainController: UIViewController {
     return views
   }()
   
+  // MARK: Life Cycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -74,6 +74,8 @@ class MainController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     updateSelectedInstruments()
   }
+  
+  // MARK: Private functions
   
   private func updateSelectedInstruments() {
     for i in 0..<instrumentsView.count {
@@ -87,7 +89,7 @@ class MainController: UIViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.largeTitleDisplayMode = .always
     let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.text]
-    navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+    navigationController?.navigationBar.largeTitleTextAttributes = textAttributes as [NSAttributedString.Key : Any]
     
     navigationItem.title = "Stereo Audio App"
   }
@@ -120,42 +122,42 @@ class MainController: UIViewController {
       make.width.height.equalTo(100)
     }
     
-    do {
-      instrumentsView.forEach { instrument in
-        instrument.snp.makeConstraints { make in
-          make.height.width.equalTo(40)
-        }
+    
+    instrumentsView.forEach { instrument in
+      instrument.snp.makeConstraints { make in
+        make.height.width.equalTo(40)
       }
-      
-      instrumentsView[0].snp.makeConstraints { make in
-        make.centerY.equalToSuperview()
-        make.leading.equalToSuperview().inset(30)
-      }
-      
-      instrumentsView[1].snp.makeConstraints { make in
-        make.centerX.equalToSuperview()
-        make.top.equalToSuperview().inset(100)
-      }
-      
-      instrumentsView[2].snp.makeConstraints { make in
-        make.centerY.equalToSuperview()
-        make.trailing.equalToSuperview().inset(30)
-      }
-      
-      instrumentsView[3].snp.makeConstraints { make in
-        make.centerX.equalToSuperview()
-        make.bottom.equalToSuperview().inset(100)
-      }
+    }
+    
+    instrumentsView[0].snp.makeConstraints { make in
+      make.centerY.equalToSuperview()
+      make.leading.equalToSuperview().inset(30)
+    }
+    
+    instrumentsView[1].snp.makeConstraints { make in
+      make.centerX.equalToSuperview()
+      make.top.equalToSuperview().inset(100)
+    }
+    
+    instrumentsView[2].snp.makeConstraints { make in
+      make.centerY.equalToSuperview()
+      make.trailing.equalToSuperview().inset(30)
+    }
+    
+    instrumentsView[3].snp.makeConstraints { make in
+      make.centerX.equalToSuperview()
+      make.bottom.equalToSuperview().inset(100)
     }
     
   }
   
   private func setupButtons() {
     stackView = UIStackView(arrangedSubviews: [playButton, resetButton])
-    view.addSubview(stackView!)
-    stackView!.axis = .horizontal
-    stackView!.spacing = 5
-    stackView!.distribution = .fillEqually
+    guard let stackView = stackView else { return }
+    view.addSubview(stackView)
+    stackView.axis = .horizontal
+    stackView.spacing = 5
+    stackView.distribution = .fillEqually
     
     playButton.snp.makeConstraints { make in
       make.height.equalToSuperview()
@@ -165,7 +167,7 @@ class MainController: UIViewController {
       make.height.equalToSuperview()
     }
     
-    stackView!.snp.makeConstraints { make in
+    stackView.snp.makeConstraints { make in
       make.leading.trailing.equalToSuperview().inset(40)
       make.height.equalTo(60)
       make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).inset(30)
@@ -174,8 +176,8 @@ class MainController: UIViewController {
   
   @objc private func playButtonPressed(_ sender: UIView?) {
     guard let button = sender as? UIButton else { return }
-    
     button.buttonPressed()
+    
     audioPlayer.play(orchestra: self.orchestra)
   }
   
@@ -195,5 +197,4 @@ class MainController: UIViewController {
     instrumentViewController.configure(with: sender.view?.tag ?? 0, orchestra: orchestra)
     navigationController?.pushViewController(instrumentViewController, animated: true)
   }
-  
 }

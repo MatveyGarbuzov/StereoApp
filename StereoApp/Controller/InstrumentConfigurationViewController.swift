@@ -10,6 +10,8 @@ import UIKit
 
 final class InstrumentConfigurationViewController: UIViewController {
   
+  // MARK: Fields
+  
   private var orchestra: Orchestra?
   private var indexOfElement: Int?
   private var selectedInstrument: Instrument?
@@ -23,12 +25,16 @@ final class InstrumentConfigurationViewController: UIViewController {
   lazy private var volumeSliderView = createSliderView(minValue: 0.0, maxValue: 1.0, text: "Volume", tag: 0)
   lazy private var sideSliderView = createSliderView(minValue: -1.0, maxValue: 1.0, text: "Side(L/R)", tag: 1)
   
+  // MARK: Lyfe Cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     setupNavigationController()
     setupMainView()
   }
+  
+  // MARK: Private functions
   
   private func setupNavigationController() {
     self.title = "Configure instrument"
@@ -118,16 +124,18 @@ final class InstrumentConfigurationViewController: UIViewController {
     return sliderStackView
   }
   
+  private func saveConfiguration() {
+    orchestra?.instruments[indexOfElement ?? 0] = selectedInstrument ?? Instrument()
+  }
+  
+  // MARK: Public functions
+  
   public func configure(with orchestra: Orchestra, index: Int?, instrument: Instrument) {
     self.orchestra = orchestra
     self.indexOfElement = index
     self.selectedInstrument = instrument
     
     print(orchestra)
-  }
-  
-  private func saveConfiguration() {
-    orchestra?.instruments[indexOfElement ?? 0] = selectedInstrument ?? Instrument()
   }
   
   @objc private func doneButtonPressed() {

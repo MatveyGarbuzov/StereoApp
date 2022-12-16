@@ -10,11 +10,15 @@ import UIKit
 
 final class AudioPlayerController {
   
+  // MARK: Fields
+  
   private var audioPlayer = AVAudioPlayer()
   private var audioQueue: AVQueuePlayer?
   
   private let alertSound = NSDataAsset(name: "GuitarSound")
   private var alertSounds: [NSDataAsset]?
+  
+  // MARK: Private functions
   
   private func playSound(side: Float, volume: Float, alertSound: NSDataAsset) {
     do {
@@ -94,6 +98,7 @@ final class AudioPlayerController {
     print("")
     print("SETTINGS: ")
     for i in 0..<orchestra.instruments.count {
+      print("ELEMENT #\(i)")
       print("NAME: ", orchestra.instruments[i].name)
       print("VOLUME: ",orchestra.instruments[i].volume)
       print("SIDE: ",orchestra.instruments[i].side)
@@ -101,6 +106,8 @@ final class AudioPlayerController {
     }
     print("")
   }
+  
+  // MARK: Public functions
   
   public func play(orchestra: Orchestra) {
     print(orchestra)

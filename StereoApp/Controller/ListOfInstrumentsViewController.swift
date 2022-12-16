@@ -9,7 +9,8 @@ import SnapKit
 import UIKit
 
 class ListOfInstrumentsViewController: UIViewController {
-//  private var instrument: Instrument?
+  
+  // MARK: Fields
   private var allInstruments = AllInstruments()
   private var orchestra: Orchestra?
   private var indexOfElement: Int?
@@ -20,11 +21,12 @@ class ListOfInstrumentsViewController: UIViewController {
     tableView.delegate = self
     tableView.separatorStyle = .none
     
-    tableView.register(InstrumentCell.self, forCellReuseIdentifier:
-                        InstrumentCell.reuseIdentifier)
+    tableView.register(InstrumentCell.self,
+                       forCellReuseIdentifier: InstrumentCell.reuseIdentifier)
     return tableView
   }()
   
+  // MARK: Life Cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -32,6 +34,8 @@ class ListOfInstrumentsViewController: UIViewController {
     setupTableView()
     print(InstrumentName.allCases.count)
   }
+  
+  // MARK: Private functions
   
   private func setupNavigationController() {
     self.title = "Choose instrument"
@@ -47,15 +51,12 @@ class ListOfInstrumentsViewController: UIViewController {
     }
   }
   
+  // MARK: Public functions
+  
   public func configure(with index: Int, orchestra: Orchestra) {
     self.orchestra = orchestra
     self.indexOfElement = index
   }
-  
-  @objc private func rightHandAction() {
-    print("GO NEXT")
-  }
-  
 }
 
 extension ListOfInstrumentsViewController: UITableViewDataSource, UITableViewDelegate {
