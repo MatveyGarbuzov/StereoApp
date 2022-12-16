@@ -34,7 +34,7 @@ final class InstrumentConfigurationViewController: UIViewController {
     self.title = "Configure instrument"
     self.navigationItem.largeTitleDisplayMode = .never
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonPressed))
-    view.backgroundColor = Colors.background
+    view.backgroundColor = .systemBackground
   }
   
   private func setupMainView() {
@@ -112,7 +112,7 @@ final class InstrumentConfigurationViewController: UIViewController {
     
     sliderStackView.distribution = .fillProportionally
     sliderStackView.layer.cornerRadius = 5
-    sliderStackView.backgroundColor = Colors.lightGray
+    sliderStackView.backgroundColor = .systemGray6
     mainView.addSubview(sliderStackView)
     
     return sliderStackView

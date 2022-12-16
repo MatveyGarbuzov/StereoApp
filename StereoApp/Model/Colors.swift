@@ -13,5 +13,5 @@ final class Colors {
   static let midGray = UIColor(named: "MidGray")
   static let lightGray = UIColor(named: "LightGray")
   static let background = UIColor(named: "Background")
-  static let black = UIColor.black
+  static let text = UIColor(named: "Text")
 }

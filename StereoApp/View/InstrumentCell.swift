@@ -25,10 +25,14 @@ final class InstrumentCell: UITableViewCell {
   
   override func layoutSubviews() {
     super.layoutSubviews()
+    
+    contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
   }
   
   func setupView() {
-    backgroundColor = Colors.lightGray
+    contentView.backgroundColor = .systemGray6
+    contentView.layer.cornerRadius = 15
+//    backgroundColor = .red//Colors.background
     setupImageView()
     setupTitleLabel()
   }
@@ -38,7 +42,7 @@ final class InstrumentCell: UITableViewCell {
     instrumentImageView.layer.cornerCurve = .continuous
     instrumentImageView.clipsToBounds = true
     instrumentImageView.contentMode = .scaleToFill
-    instrumentImageView.backgroundColor = .secondarySystemBackground
+    instrumentImageView.backgroundColor = Colors.lightGray
     
     contentView.addSubview(instrumentImageView)
     instrumentImageView.snp.makeConstraints { make in

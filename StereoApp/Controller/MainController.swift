@@ -16,10 +16,11 @@ class MainController: UIViewController {
   
   lazy private var playButton: UIButton = {
     let button = UIButton(frame: .zero)
-    button.backgroundColor = .red
+    button.backgroundColor = .opaqueSeparator
     button.setTitle("Play", for: .normal)
     button.titleLabel?.font = .systemFont(ofSize: 25, weight: .bold)
     button.layer.cornerRadius = 10
+    button.setTitleColor(.label, for: .normal)
     
     button.addTarget(self, action: #selector(playButtonPressed), for: .touchUpInside)
     
@@ -65,11 +66,11 @@ class MainController: UIViewController {
   }
   
   private func setupNavigationController() {
-    view.backgroundColor = Colors.background
+    view.backgroundColor = .systemBackground
     
     navigationController?.navigationBar.prefersLargeTitles = true
     navigationItem.largeTitleDisplayMode = .always
-    let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.black]
+    let textAttributes = [NSAttributedString.Key.foregroundColor:Colors.text]
     navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
     
     navigationItem.title = "Stereo Audio App"
@@ -93,7 +94,7 @@ class MainController: UIViewController {
     
     lazy var personCircleView: UIView = {
       let view = UIView()
-      view.backgroundColor = .red
+      view.backgroundColor = .opaqueSeparator
       view.layer.cornerRadius = 50
       return view
     }()

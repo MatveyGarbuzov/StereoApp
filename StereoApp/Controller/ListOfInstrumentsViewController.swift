@@ -16,9 +16,9 @@ class ListOfInstrumentsViewController: UIViewController {
   
   lazy private var tableView: UITableView = {
     let tableView = UITableView()
-    tableView.backgroundColor = .red
     tableView.dataSource = self
     tableView.delegate = self
+    tableView.separatorStyle = .none
     
     tableView.register(InstrumentCell.self, forCellReuseIdentifier:
                         InstrumentCell.reuseIdentifier)
@@ -36,7 +36,7 @@ class ListOfInstrumentsViewController: UIViewController {
   private func setupNavigationController() {
     self.title = "Choose instrument"
     self.navigationItem.largeTitleDisplayMode = .never
-    view.backgroundColor = Colors.background
+    view.backgroundColor = .systemBackground
   }
   
   private func setupTableView() {
